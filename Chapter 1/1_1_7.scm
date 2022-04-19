@@ -34,3 +34,17 @@
 
 (define (sqrt2 x)
   (sqrt-iter2 1.0 x))
+
+(define (good-enough?2 guess x)
+  (< (abs (- (improve guess x) guess)) 0.00001))
+
+(define (sqrt-iter3 guess x)
+  (if (good-enough?2 guess x) 
+          guess
+          (sqrt-iter3 (improve guess x)
+                     x)))
+
+(define (sqrt3 x)
+  (sqrt-iter3 1.0 x))
+
+
